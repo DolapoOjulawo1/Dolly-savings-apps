@@ -9,7 +9,7 @@ const SavingsPage = () => {
          name: 'Onadein Kehinde',
          age: '25',
          socioEconomicStatus: 'upper class',
-         durationOfInvsetment: '2 years',
+         durationOfInvestment: '2 years',
          amountSaved: 50000
          },
     { 
@@ -17,7 +17,7 @@ const SavingsPage = () => {
          name: 'Oladehinde Christianah',
          age: '20',
          socioEconomicStatus: 'middle class',
-         durationOfInvsetment: '7 months',
+         durationOfInvestment: '7 months',
           amountSaved: 7500
          },
     { 
@@ -25,7 +25,7 @@ const SavingsPage = () => {
          name: 'Otukoya Christianah',
          age: '22',
          socioEconomicStatus: 'middle class',
-         durationOfInvsetment: '10 months',
+         durationOfInvestment: '10 months',
          amountSaved: 10000
          },
     { 
@@ -33,7 +33,7 @@ const SavingsPage = () => {
          name: 'Dada Rotimi',
          age: '23',
          socioEconomicStatus: 'upper class',
-         durationOfInvsetment: '3 years',
+         durationOfInvestment: '3 years',
           amountSaved: 30000
          },
     {
@@ -41,7 +41,7 @@ const SavingsPage = () => {
           name: 'Dada Dabira',
           age: '19',
           socioEconomicStatus: 'upper class',
-          durationOfInvsetment: '6 months',
+          durationOfInvestment: '6 months',
            amountSaved: 50000
          },
     { 
@@ -49,7 +49,7 @@ const SavingsPage = () => {
          name: 'Adigun Ayomide',
          age: '17',
          socioEconomicStatus: 'middle class',
-         durationOfInvsetment: '5 years',
+         durationOfInvestment: '5 years',
           amountSaved: 10000
          },
     { 
@@ -57,7 +57,7 @@ const SavingsPage = () => {
          name: 'Salam Khadijah',
          age: '19',
          socioEconomicStatus: 'Upper class',
-         durationOfInvsetment: '6 years',
+         durationOfInvestment: '6 years',
           amountSaved: 2000 
         },
     {
@@ -65,14 +65,14 @@ const SavingsPage = () => {
          name: 'Abraham Elizabeth',
          age: '25',
          socioEconomicStatus: 'middle class',
-         durationOfInvsetment: '3 years',
+         durationOfInvestment: '3 years',
           amountSaved: 23000
          },
     { id: 9,
          name: 'Sabitu Mayowa',
          age: '30',
          socioEconomicStatus: 'middle class',
-         durationOfInvsetment: '5 months',
+         durationOfInvestment: '5 months',
           amountSaved: 56000 
         },
 
@@ -80,12 +80,12 @@ const SavingsPage = () => {
             name: 'Bayowa Ahmed',
             age: '30',
             socioEconomicStatus: 'lower class',
-            durationOfInvsetment: '7 years',
+            durationOfInvestment: '7 years',
              amountSaved: 56000 
            },
   ]);
 
-  const [newIntake, setNewIntake] = useState({ name: '',email: '', dateOfBirth:'',dateOfRegistration:'', socioEconomicStatus:'', durationOfInvsetment:'', amountSaved: '' });
+  const [newIntake, setNewIntake] = useState({ name: '',age: '', email: '', dateOfBirth:'',dateOfRegistration:'', socioEconomicStatus:'', durationOfInvestment:'', amountSaved: '' });
 
   const handleInputChange = (e) => {
     setNewIntake({ ...newIntake, [e.target.name]: e.target.value });
@@ -96,7 +96,7 @@ const SavingsPage = () => {
     const newId = savingsData.length + 1;
     const newSavingsData = [...savingsData, { id: newId, ...newIntake }];
     setSavingsData(newSavingsData);
-    setNewIntake({name: '',email: '', dateOfBirth:'',dateOfRegistration:'', socioEconomicStatus:'', durationOfInvsetment:'', amountSaved: ''} );
+    setNewIntake({name: '',age: '', email: '', dateOfBirth:'',dateOfRegistration:'', socioEconomicStatus:'', durationOfInvestment:'', amountSaved: ''} );
   };
 
   return (
@@ -116,6 +116,17 @@ const SavingsPage = () => {
             id="name"
             name="name"
             value={newIntake.name}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="age">Age:</label>
+          <input
+            type="text"
+            id="age"
+            name="age"
+            value={newIntake.age}
             onChange={handleInputChange}
             required
           />
@@ -167,25 +178,26 @@ const SavingsPage = () => {
         </div>
         <div>
           <label htmlFor="durationOfInvestment">Duration Of Investment :</label>
+          
           <input
             type="text"
             id="durationOfInvestment"
             name="durationOfInvestment"
             value={newIntake.durationOfInvestment}
             onChange={handleInputChange}
-            required
+            
           />
         </div>
 
         <div>
-          <label htmlFor="amount">Amount Saved:</label>
+          <label htmlFor="amountSaved">Amount Saved:</label>
           <input
             type="text"
-            id="amount"
-            name="amount"
-            value={newIntake.amount}
+            id="amountSaved"
+            name="amountSaved"
+            value={newIntake.amountSaved}
             onChange={handleInputChange}
-            required
+            
           />
         </div>
         <button type="submit">Add Intake</button>
@@ -209,7 +221,7 @@ const SavingsPage = () => {
               <td>{savings.name}</td>
               <td>{savings.age}</td>
               <td>{savings.socioEconomicStatus}</td>
-              <td>{savings.durationOfInvsetment}</td>
+              <td>{savings.durationOfInvestment}</td>
               <td>&#x20a6;{savings.amountSaved}</td>
             </tr>
           ))}
